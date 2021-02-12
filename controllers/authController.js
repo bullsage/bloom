@@ -47,7 +47,7 @@ module.exports.signup = (req,res) => {
                 res.status(201).json({email})})
             .catch(err => res.json({msg:handleErrors(err)}))//db
 
-        }).catch(res.json({msg:'cannot register'}))
+        }).catch(console.log)
         
     }
     
