@@ -2,7 +2,7 @@ require('dotenv').config()
 const db = require('knex')({
     client: 'pg',
     connection: {
-      connectionString : 'postgresql-colorful-03306',
+      connectionString : process.env.DATABASE_URL,
       ssl: true
     }
 });
