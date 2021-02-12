@@ -44,10 +44,10 @@ module.exports.signup = (req,res) => {
                 const token = createToken({email,admin:false})
                 //httpOnly: we can access it from the console (via js)
                 res.cookie('jwt',token, {httpOnly: true, maxAge: maxAge * 1000})
-                res.status(201).json({email,np:'jlkdsjf'})})
-            .catch(err => res.json({msg:handleErrors(err),err2:'djlkxc'}))//db //db users insert failing
+                res.status(201).json({email})})
+            .catch(err => res.json({msg:handleErrors(err)}))//db
 
-        }).catch(err => res.json({msg:err,err3:'kjdsfcnd'}))//bcrypt
+        }).catch(res.json({msg:'cannot register'}))
         
     }
     
