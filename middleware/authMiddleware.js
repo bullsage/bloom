@@ -1,8 +1,8 @@
 const jwt = require('jsonwebtoken')
 
 const requireAuth = (req,res) => {
-    const token = req.cookies.jwt
-    if (token){
+    // const token = req.cookies.jwt
+    if (req.body.token){
         jwt.verify(token,'been working since the jump', (err,decodedToken) => {
             if(err){
                 //use decodedToks
@@ -19,6 +19,12 @@ const requireAuth = (req,res) => {
 }
 
 module.exports = {requireAuth}
+
+
+
+
+
+
 
 // const jwt = require('jsonwebtoken')
 
