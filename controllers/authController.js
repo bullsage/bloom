@@ -81,8 +81,8 @@ module.exports.login = (req,res) => {
                 const userObj = {name:user[0].name,email:user[0].email,admin:user[0].admin}
                 if(match){
                     const token = createToken({email:user[0].email,admin:user[0].admin})
-                    res.cookie('jwt',token, {httpOnly: true, maxAge: maxAge * 1000})
-                    res.status(201).json({userObj})
+                    // res.cookie('jwt',token, {httpOnly: true, maxAge: maxAge * 1000})
+                    res.status(201).json({token})
                     //create a jwt and send that as response in a cookie
                       
                 }
