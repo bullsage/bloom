@@ -43,8 +43,8 @@ module.exports.signup = (req,res) => {
             .then(user => {
                 const token = createToken({email,admin:false})
                 //httpOnly: we can access it from the console (via js)
-                res.cookie('jwt',token, {httpOnly: true, maxAge: maxAge * 1000})
-                res.status(201).json({email})})
+                // res.cookie('jwt',token, {httpOnly: true, maxAge: maxAge * 1000})
+                res.status(201).json({token})})
             .catch(err => res.json({msg:handleErrors(err)}))//db
 
         }).catch(console.log)
