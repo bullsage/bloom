@@ -9,9 +9,10 @@ require('dotenv').config()
 
 const app = express()
 
-app.use(cors())
+
 app.use(express.json())
 app.use(cookieParser())
+app.use(cors())
 app.get('/protected', requireAuth)
 app.listen(process.env.PORT, () => {
     console.log('app running on ' + process.env.PORT)
