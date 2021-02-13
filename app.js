@@ -13,7 +13,7 @@ const app = express()
 app.use(express.json())
 // app.use(cookieParser())
 app.use(cors())
-app.get('/protected', requireAuth)
+app.post('/protected', requireAuth)
 app.listen(process.env.PORT, () => {
     console.log('app running on ' + process.env.PORT)
 })
