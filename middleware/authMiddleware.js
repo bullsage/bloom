@@ -2,7 +2,8 @@ const jwt = require('jsonwebtoken')
 
 const requireAuth = (req,res) => {
     // const token = req.cookies.jwt
-    if (req.body.token){
+    const {token} = req.body
+    if (token){
         jwt.verify(token,'been working since the jump', (err,decodedToken) => {
             if(err){
                 //use decodedToks
