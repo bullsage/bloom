@@ -5,7 +5,7 @@ const {requireA} = require('../middleware/AdminMiddleware')
 
 
 router.use(requireA)
-router.get('/all', allUsers)
+router.post('/all', allUsers)
 
 router.put('/editUser', editUser)
 
