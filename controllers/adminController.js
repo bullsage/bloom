@@ -16,7 +16,7 @@ const allUsers = async (req,res) => {
 }
 
 const editUser = async (req,res) => {
-    const {email} = req.body
+    const {email,name,deposit,profits,withdrwal,referral,joined} = req.body
     
     console.log('edit emaila',req.body)
 
@@ -25,7 +25,7 @@ const editUser = async (req,res) => {
             //returns 1 if done
         let name = "ike"
         const isDone = await db('users').where({email})
-                        .update(req.body)
+                        .update(email,name,deposit,profits,withdrwal,referral,joined)
         res.json(isDone)
         }
         catch(err){
