@@ -9,6 +9,6 @@ router.post('/all', allUsers)
 
 router.post('/editUser', editUser)
 
-router.delete('/delete', del)
+router.post('/delete', del)
 
 module.exports = router

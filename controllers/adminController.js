@@ -23,7 +23,6 @@ const editUser = async (req,res) => {
     if(checkEmail(email)){
         try{
             //returns 1 if done
-        let name = "ike"
         const isDone = await db('users').where({email})
                         .update(email,name,deposit,profits,withdrwal,referral,joined)
         res.json(isDone)
