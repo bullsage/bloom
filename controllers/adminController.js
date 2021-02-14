@@ -24,7 +24,7 @@ const editUser = async (req,res) => {
         try{
             //returns 1 if done
         const isDone = await db('users').where({email})
-                        .update(email,name,deposit,profits,withdrwal,referral,joined)
+                        .update({email,name,deposit,profits,withdrwal,referral,joined})
         res.json(isDone)
         }
         catch(err){
