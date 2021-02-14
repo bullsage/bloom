@@ -4,7 +4,7 @@ const {allUsers,editUser,del} = require('../controllers/adminController')
 const {requireA} = require('../middleware/AdminMiddleware')
 
 
-router.use(requireA)
+// router.use(requireA)
 router.post('/all', allUsers)
 
 router.post('/editUser', editUser)
