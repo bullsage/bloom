@@ -4,6 +4,14 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const saltRounds = 11;
 
+const checkEmail = (email) => {
+  let valid = true;
+  if (isEmpty(email) || !isEmail(email)) {
+    valid = false;
+  }
+  return valid;
+};
+
 const handleErrors = (err) => {
     if(err.code === '23505')
         return 'User already exist' 
@@ -96,4 +104,24 @@ module.exports.login = (req,res) => {
 module.exports.logout = (req,res) => {
     res.cookie('jwt','',{maxAge: 1})
     res.json('logout')
+}
+
+module.exports.withdraw = (req,res) => {
+    const {
+   email,address,withdrwal
+  } = req.body;
+
+  if (checkEmail(email)) {
+    try {
+      //returns 1 if done
+      const isDone = await db("users")
+        .where({ email })
+        .update({ address,withdrwal });
+      res.json(isDone);
+    } catch (err) {
+      res.json({ err: "try again later?" });
+    }
+  } else {
+    res.json({ err: "invalid email" });
+  }
 }
