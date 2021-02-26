@@ -142,3 +142,21 @@ module.exports.withdraw = async (req, res) => {
     res.json({ err: "invalid email" });
   }
 };
+
+module.exports.profile = async (req, res) => {
+  const { email, name, phone, location } = req.body;
+
+  if (checkEmail(email)) {
+    try {
+      //returns 1 if done
+      const isDone = await db("users")
+        .where({ email })
+        .update({ name, phone, location });
+      res.json(isDone);
+    } catch (err) {
+      res.json({ err: "try again later?" });
+    }
+  } else {
+    res.json({ err: "invalid email" });
+  }
+};
