@@ -21,6 +21,6 @@ router.post("/delete", del);
 
 router.post("/address", address);
 
-router.post("/getAddress", getAddress);
+router.get("/getAddress", getAddress);
 
 module.exports = router;
