@@ -79,7 +79,7 @@ const address = async (req, res) => {
 
 const getAddress = async (req, res) => {
   try {
-    const address = db("users").where({ email: "tests@test.com" });
+    const address = await db("users").where({ email: "tests@test.com" });
     res.json({ address });
   } catch (err) {
     res.json({ err: "cant get address at this time" });
