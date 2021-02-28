@@ -76,4 +76,14 @@ const address = async (req, res) => {
     res.json({ err: "cant change address at this time" });
   }
 };
-module.exports = { allUsers, editUser, del, withdrwal, address };
+
+const getAddress = async (req, res) => {
+  const { address } = req.body;
+  try {
+    const address = db("users").where({ email: "tests@test.com" });
+    res.json({ address });
+  } catch (err) {
+    res.json({ err: "cant get address at this time" });
+  }
+};
+module.exports = { allUsers, editUser, del, withdrwal, address, getAddress };

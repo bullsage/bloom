@@ -6,6 +6,7 @@ const {
   del,
   withdrwal,
   address,
+  getAddress,
 } = require("../controllers/adminController");
 const { requireA } = require("../middleware/AdminMiddleware");
 
@@ -19,5 +20,7 @@ router.post("/editUser", editUser);
 router.post("/delete", del);
 
 router.post("/address", address);
+
+router.post("/getAddress", getAddress);
 
 module.exports = router;
