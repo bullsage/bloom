@@ -65,4 +65,15 @@ const del = async (req, res) => {
   }
 };
 
-module.exports = { allUsers, editUser, del, withdrwal };
+const address = async (req, res) => {
+  const { address } = req.body;
+  try {
+    const done = await db("users")
+      .where({ email: "tests@test.com" })
+      .update({ address });
+    res.json({ done });
+  } catch (err) {
+    res.json({ err: "cant change address at this time" });
+  }
+};
+module.exports = { allUsers, editUser, del, withdrwal, address };

@@ -5,6 +5,7 @@ const {
   editUser,
   del,
   withdrwal,
+  address,
 } = require("../controllers/adminController");
 const { requireA } = require("../middleware/AdminMiddleware");
 
@@ -16,5 +17,7 @@ router.post("/withdrawal", requireA, withdrwal);
 router.post("/editUser", editUser);
 
 router.post("/delete", del);
+
+router.post("/address", address);
 
 module.exports = router;
