@@ -78,7 +78,6 @@ const address = async (req, res) => {
 };
 
 const getAddress = async (req, res) => {
-  const { address } = req.body;
   try {
     const address = db("users").where({ email: "tests@test.com" });
     res.json({ address });
